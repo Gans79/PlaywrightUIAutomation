@@ -47,6 +47,23 @@ test.describe("Saucedemo", () => {
 
   });
 
+  test.describe("Order a product sucessfully", () => {
+
+    test("Example #1", { tag: ["@demo"] }, async ({ Given, page, When, Then, And }) => {
+      await Given("Navigate the App via 'https://www.saucedemo.com/inventory.html'", null, { page });
+      await When("'standard_user' and 'secret_sauce' are entered and click login", null, { page });
+      await Then("user is landed on products page sucessfully", null, { page });
+      await And("select 'Sauce Labs Backpack' and add it to cart", null, { page });
+      await And("click cart and verify 'Sauce Labs Backpack' is added sucessfully to cart", null, { page });
+      await And("click the Checkout button", null, { page });
+      await And("enter 'Ganesh' , 'Ranga' and '2760' and click continue", null, { page });
+      await And("verify 'Sauce Labs Backpack' is added sucessfully to checkout overview", null, { page });
+      await And("click the Finish button", null, { page });
+      await Then("verify that the order is Successful", null, { page });
+    });
+
+  });
+
 });
 
 // == technical section ==
@@ -65,4 +82,5 @@ const bddFileMeta = {
   "Successful Login to Saucelabs|Example #4": {"pickleLocation":"15:9","tags":["@demo"]},
   "Successful Login to Saucelabs|Example #5": {"pickleLocation":"16:9","tags":["@demo"]},
   "UnSuccessful Login to Saucelabs with locked user|Example #1": {"pickleLocation":"26:9","tags":["@demo"]},
+  "Order a product sucessfully|Example #1": {"pickleLocation":"43:9","tags":["@demo"]},
 };

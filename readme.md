@@ -34,3 +34,6 @@
     example via command line - powershell:  
         npx bddgen --tags '@demo' ; npx playwright test --headed 
         npx bddgen --tags '@demo' ; npx playwright test --debug 
+ 10) Generate Test Report 
+       npx playwright test --reporter=html 
+       npx playwright show-report
